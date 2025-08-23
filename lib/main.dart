@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tracker_app/widget/expenses.dart';
+import "package:flutter/services.dart";
 
 var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
@@ -9,7 +10,13 @@ var kDarkColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 5, 99, 125),
 );
 void main() {
-  runApp(MyApp());
+  /*WidgetsFlutterBinding.ensureInitialized(); 
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then((
+    fn,
+  ) {
+   
+  });*/
+   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +31,11 @@ class MyApp extends StatelessWidget {
         cardTheme: CardThemeData().copyWith(
           color: kDarkColorScheme.secondaryContainer,
           margin: EdgeInsets.symmetric(vertical: 16, horizontal: 8),
+        ),
+        bottomSheetTheme: BottomSheetThemeData().copyWith(
+          showDragHandle: true,
+          dragHandleColor: kDarkColorScheme.inverseSurface,
+          modalBarrierColor: kDarkColorScheme.onPrimary.withAlpha(90),
         ),
 
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -55,6 +67,11 @@ class MyApp extends StatelessWidget {
             fontSize: 16,
             color: kColorScheme.onSecondaryContainer,
           ),
+        ),
+        bottomSheetTheme: BottomSheetThemeData().copyWith(
+          showDragHandle: true,
+          dragHandleColor: kColorScheme.onSecondaryContainer,
+          modalBarrierColor: kColorScheme.onPrimaryContainer.withAlpha(190),
         ),
       ),
 
